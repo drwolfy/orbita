@@ -8,7 +8,7 @@ venv/
 .env
 .env.ejemplo
 
-# Privado: infraestructura y config internas del lab. El repo público lleva un
+# Privado: configuración interna de despliegue. El repo público lleva un
 # docker-compose.example.yml genérico y un README sin detalles del montaje.
 docker-compose.yml
 DESPLIEGUE-LAB.md

@@ -1,7 +1,6 @@
 # ÓRBITA — especificación
 
-> Documento de referencia para Claude Code.
-> Proyecto: `~/proyectos/apps/Orbita/`
+> Documento de referencia del proyecto.
 > Juego social de deducción para navegador (PWA, mobile-first, español).
 
 > **Estado: construido y en marcha.** Los §1–§4 describen el juego **tal y como
@@ -14,9 +13,7 @@
 
 ## 0. Antes de empezar
 
-Revisa el `CLAUDE.md` de la raíz de `~/proyectos/` y respeta sus convenciones
-(estructura, linting, entornos, commits). Si algo de aquí choca con él, gana el
-`CLAUDE.md` y me lo señalas antes de continuar.
+Respeta las convenciones del proyecto (estructura, linting, entornos, commits).
 
 Las fases de construcción (§5 en adelante) ya están cumplidas: la validación en
 papel se hizo, el pipeline generó los datos y la app está desplegada. Para

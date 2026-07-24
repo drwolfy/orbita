@@ -282,7 +282,7 @@ catálogo vuelve a palabras solo.
 ## Generar las fotos con IA
 
 Los tríos que hay ahora están generados con **Nano Banana**
-(`gemini-2.5-flash-image`), usando la `GEMINI_API_KEY`. Funciona bien y
+(`gemini-2.5-flash-image`), con una clave de API de Gemini. Funciona bien y
 tarda unos seis segundos por foto.
 
 **Con Flux Schnell (ComfyUI) no funcionó**, y conviene dejarlo escrito:
