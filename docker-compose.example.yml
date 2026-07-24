@@ -1,0 +1,18 @@
+# Ejemplo mínimo para desplegar Órbita en tu propio entorno.
+#
+# Órbita es 100 % estática: el Dockerfile construye la app y la sirve con nginx
+# (usuario no-root, cabeceras de seguridad y CSP incluidas). Esto la publica en
+# el puerto 8080 de tu máquina; ponla detrás del proxy o el hosting que uses.
+#
+#     docker compose -f docker-compose.example.yml up -d --build
+
+services:
+  web:
+    build: ./app/web
+    ports:
+      - "8080:80"
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    cap_add: ["NET_BIND_SERVICE"]
+    mem_limit: 64m
+    restart: unless-stopped

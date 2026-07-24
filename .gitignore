@@ -1,0 +1,25 @@
+# Datos persistentes y temporales
+data/
+
+# Entorno virtual de Python
+venv/
+
+# Credenciales
+.env
+.env.ejemplo
+
+# Privado: infraestructura y config internas del lab. El repo público lleva un
+# docker-compose.example.yml genérico y un README sin detalles del montaje.
+docker-compose.yml
+DESPLIEGUE-LAB.md
+CLAUDE.md
+
+# Cachés y compilados de Python
+__pycache__/
+*.pyc
+
+# Node / Vite
+node_modules/
+dist/
+.vite/
+*.local

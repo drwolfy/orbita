@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "_nota": "verificacion 'auto' la comprueba la app con el recuento de votos; 'grupo' la vota la mesa en la Alineación. Las maniobras nunca condicionan la señal (§3.1a): solo viven en el debate y la votación.",
+  "maniobras": [
+    {
+      "id": "voto-dirigido",
+      "texto": "Consigue que voten a {jugador}.",
+      "tipo": "voto",
+      "verificacion": "auto",
+      "regla": "objetivo-mas-votado",
+      "parametro": "otro",
+      "opuesta": "voto-blindaje"
+    },
+    {
+      "id": "voto-blindaje",
+      "texto": "Consigue que nadie vote a {jugador}.",
+      "tipo": "voto",
+      "verificacion": "auto",
+      "regla": "objetivo-sin-votos",
+      "parametro": "otro",
+      "opuesta": "voto-dirigido"
+    },
+    {
+      "id": "voto-sobre-mi",
+      "texto": "Consigue que te voten a ti.",
+      "tipo": "voto",
+      "verificacion": "auto",
+      "regla": "yo-mas-votado",
+      "parametro": "ninguno"
+    },
+    {
+      "id": "voto-empate",
+      "texto": "Consigue un empate en la votación.",
+      "tipo": "voto",
+      "verificacion": "auto",
+      "regla": "hay-empate",
+      "parametro": "ninguno"
+    },
+    {
+      "id": "verbal-palabra",
+      "texto": "Consigue que alguien diga «{palabra}».",
+      "tipo": "verbal",
+      "verificacion": "grupo",
+      "parametro": "palabra"
+    },
+    {
+      "id": "verbal-mi-nombre",
+      "texto": "Haz que digan tu nombre tres veces.",
+      "tipo": "verbal",
+      "verificacion": "grupo",
+      "parametro": "ninguno"
+    },
+    {
+      "id": "verbal-invisible",
+      "texto": "Que nadie te dirija la palabra en todo el debate.",
+      "tipo": "verbal",
+      "verificacion": "grupo",
+      "parametro": "ninguno"
+    },
+    {
+      "id": "comp-silencio",
+      "texto": "No hables hasta que queden 60 segundos.",
+      "tipo": "comportamiento",
+      "verificacion": "grupo",
+      "parametro": "ninguno"
+    },
+    {
+      "id": "comp-primer-acusador",
+      "texto": "Sé el primero en acusar a alguien.",
+      "tipo": "comportamiento",
+      "verificacion": "grupo",
+      "parametro": "ninguno"
+    },
+    {
+      "id": "comp-contradecir",
+      "texto": "Contradice a la primera persona que hable.",
+      "tipo": "comportamiento",
+      "verificacion": "grupo",
+      "parametro": "ninguno"
+    },
+    {
+      "id": "comp-defender",
+      "texto": "Defiende públicamente a {jugador}.",
+      "tipo": "comportamiento",
+      "verificacion": "grupo",
+      "parametro": "otro"
+    }
+  ],
+  "_palabras": "Palabras corrientes para la maniobra verbal-palabra: tienen que poder colarse en cualquier debate sin sonar forzadas, y no deben parecerse a ninguna señal.",
+  "palabras": [
+    "lunes",
+    "abuela",
+    "obviamente",
+    "ayer",
+    "vecino",
+    "pescado",
+    "carísimo",
+    "invierno",
+    "domingo",
+    "hospital",
+    "verde",
+    "tarde",
+    "primo",
+    "sinceramente",
+    "cansado",
+    "agosto",
+    "dinero",
+    "bicicleta",
+    "aburrido",
+    "mañana"
+  ]
+}

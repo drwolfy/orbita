@@ -1,0 +1,723 @@
+{
+  "version": 1,
+  "origen": "tríos de imágenes generados con Nano Banana (gemini-2.5-flash-image). Tres reglas, todas aprendidas fallando en la mesa: (1) cada foto tiene que dar UNA SOLA palabra —si admite dos, el núcleo se parte solo—; (2) los tres objetos tienen que ser icónicos, nombrables en dos segundos, y los satélites sobre todo; (3) las pistas seguras se tienen que solapar mucho, que es lo que hace durar la ronda. La receta y las tandas descartadas están en docs/parejas.md",
+  "familias": [
+    {
+      "id": "img-naranjas",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "naranja-piel",
+      "bandas": {
+        "1": [
+          "balon-basket",
+          "calabaza"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "naranja-piel": "naranja",
+        "balon-basket": "balón",
+        "calabaza": "calabaza"
+      },
+      "titulos": {
+        "naranja-piel": "la piel de una naranja",
+        "balon-basket": "un balón de baloncesto",
+        "calabaza": "una calabaza"
+      },
+      "comunes": [
+        "naranja",
+        "rugoso",
+        "redondo",
+        "se agarra",
+        "poros",
+        "otoño",
+        "gordo"
+      ],
+      "minas": [
+        "zumo",
+        "canasta",
+        "halloween"
+      ]
+    },
+    {
+      "id": "img-verdes",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "brocoli",
+      "bandas": {
+        "1": [
+          "cesped",
+          "lechuga"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "brocoli": "brócoli",
+        "cesped": "césped",
+        "lechuga": "lechuga"
+      },
+      "titulos": {
+        "brocoli": "un brócoli",
+        "cesped": "un césped",
+        "lechuga": "una lechuga"
+      },
+      "comunes": [
+        "verde",
+        "crece",
+        "tupido",
+        "natural",
+        "apretado",
+        "huerto",
+        "fresco"
+      ],
+      "minas": [
+        "hervir",
+        "cortacésped",
+        "ensalada"
+      ]
+    },
+    {
+      "id": "img-celdas",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "panal",
+      "bandas": {
+        "1": [
+          "gofre",
+          "esponja"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "panal": "panal",
+        "gofre": "gofre",
+        "esponja": "esponja"
+      },
+      "titulos": {
+        "panal": "un panal de abejas",
+        "gofre": "un gofre",
+        "esponja": "una esponja"
+      },
+      "comunes": [
+        "amarillo",
+        "agujeros",
+        "celdas",
+        "esponjoso",
+        "se repite",
+        "blando",
+        "huecos"
+      ],
+      "minas": [
+        "miel",
+        "desayuno",
+        "fregar"
+      ]
+    },
+    {
+      "id": "img-rejilla",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "chocolate",
+      "bandas": {
+        "1": [
+          "ladrillos",
+          "parquet"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "chocolate": "chocolate",
+        "ladrillos": "ladrillos",
+        "parquet": "parquet"
+      },
+      "titulos": {
+        "chocolate": "una tableta de chocolate",
+        "ladrillos": "una pared de ladrillos",
+        "parquet": "un suelo de parquet"
+      },
+      "comunes": [
+        "marrón",
+        "cuadrados",
+        "filas",
+        "se repite",
+        "líneas",
+        "duro",
+        "encajado"
+      ],
+      "minas": [
+        "onza",
+        "obra",
+        "barrer"
+      ]
+    },
+    {
+      "id": "img-radios",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "kiwi",
+      "bandas": {
+        "1": [
+          "girasol",
+          "diana"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "kiwi": "kiwi",
+        "girasol": "girasol",
+        "diana": "diana"
+      },
+      "titulos": {
+        "kiwi": "una rodaja de kiwi",
+        "girasol": "un girasol",
+        "diana": "una diana"
+      },
+      "comunes": [
+        "círculo",
+        "centro",
+        "radios",
+        "redondo",
+        "se abre",
+        "pepitas",
+        "corona"
+      ],
+      "minas": [
+        "batido",
+        "campo",
+        "dardos"
+      ]
+    },
+    {
+      "id": "img-blancos",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "palomitas",
+      "bandas": {
+        "1": [
+          "coliflor",
+          "merengue"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "palomitas": "palomitas",
+        "coliflor": "coliflor",
+        "merengue": "merengue"
+      },
+      "titulos": {
+        "palomitas": "palomitas",
+        "coliflor": "una coliflor",
+        "merengue": "merengues"
+      },
+      "comunes": [
+        "blanco",
+        "bultos",
+        "esponjoso",
+        "montón",
+        "se deshace",
+        "ligero",
+        "nubes"
+      ],
+      "minas": [
+        "cine",
+        "hervir",
+        "horno"
+      ]
+    },
+    {
+      "id": "img-hoyuelos",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "fresa",
+      "bandas": {
+        "1": [
+          "golf",
+          "burbujas"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "fresa": "fresa",
+        "golf": "pelota de golf",
+        "burbujas": "burbujas"
+      },
+      "titulos": {
+        "fresa": "una fresa",
+        "golf": "una pelota de golf",
+        "burbujas": "papel de burbujas"
+      },
+      "comunes": [
+        "hoyuelos",
+        "bolitas",
+        "se repite",
+        "liso",
+        "ordenado",
+        "agarra"
+      ],
+      "minas": [
+        "nata",
+        "hoyo",
+        "explotar"
+      ]
+    },
+    {
+      "id": "img-escamas",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "pina",
+      "bandas": {
+        "1": [
+          "alcachofa",
+          "cocodrilo"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "pina": "piña",
+        "alcachofa": "alcachofa",
+        "cocodrilo": "cocodrilo"
+      },
+      "titulos": {
+        "pina": "una piña",
+        "alcachofa": "una alcachofa",
+        "cocodrilo": "piel de cocodrilo"
+      },
+      "comunes": [
+        "escamas",
+        "rombos",
+        "puntas",
+        "duro",
+        "piel",
+        "capas",
+        "áspero"
+      ],
+      "minas": [
+        "tropical",
+        "hervir",
+        "bolso"
+      ]
+    },
+    {
+      "id": "img-anillos",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "cebolla",
+      "bandas": {
+        "1": [
+          "tronco",
+          "huella"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "cebolla": "cebolla",
+        "tronco": "tronco",
+        "huella": "huella"
+      },
+      "titulos": {
+        "cebolla": "una cebolla por dentro",
+        "tronco": "un tronco cortado",
+        "huella": "una huella dactilar"
+      },
+      "comunes": [
+        "anillos",
+        "círculos",
+        "capas",
+        "centro",
+        "se repite",
+        "líneas",
+        "crece"
+      ],
+      "minas": [
+        "llorar",
+        "hacha",
+        "policía"
+      ]
+    },
+    {
+      "id": "img-hebras",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "espagueti",
+      "bandas": {
+        "1": [
+          "cables",
+          "lombrices"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "espagueti": "espagueti",
+        "cables": "cables",
+        "lombrices": "lombrices"
+      },
+      "titulos": {
+        "espagueti": "espaguetis",
+        "cables": "cables enredados",
+        "lombrices": "lombrices"
+      },
+      "comunes": [
+        "enredado",
+        "largo",
+        "se enrolla",
+        "lío",
+        "tiras",
+        "blando",
+        "nudo"
+      ],
+      "minas": [
+        "hervir",
+        "enchufe",
+        "tierra"
+      ]
+    },
+    {
+      "id": "img-hermanas",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "brocoli",
+      "bandas": {
+        "1": [
+          "coliflor",
+          "romanesco"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "brocoli": "brócoli",
+        "coliflor": "coliflor",
+        "romanesco": "romanesco"
+      },
+      "titulos": {
+        "brocoli": "un brócoli",
+        "coliflor": "una coliflor",
+        "romanesco": "un romanesco"
+      },
+      "comunes": [
+        "verdura",
+        "ramilletes",
+        "apretado",
+        "bultos",
+        "cocido",
+        "redondo",
+        "huerto"
+      ],
+      "minas": [
+        "árbol",
+        "blanco",
+        "espiral"
+      ]
+    },
+    {
+      "id": "img-pasta",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "espagueti",
+      "bandas": {
+        "1": [
+          "fideos",
+          "tallarines"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "espagueti": "espagueti",
+        "fideos": "fideos",
+        "tallarines": "tallarines"
+      },
+      "titulos": {
+        "espagueti": "espaguetis",
+        "fideos": "fideos",
+        "tallarines": "tallarines"
+      },
+      "comunes": [
+        "pasta",
+        "hervir",
+        "largo",
+        "enredado",
+        "blando",
+        "italiano",
+        "tenedor"
+      ],
+      "minas": [
+        "boloñesa",
+        "sopa",
+        "plano"
+      ]
+    },
+    {
+      "id": "img-citricos",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "limon",
+      "bandas": {
+        "1": [
+          "lima",
+          "pomelo"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "limon": "limón",
+        "lima": "lima",
+        "pomelo": "pomelo"
+      },
+      "titulos": {
+        "limon": "medio limón",
+        "lima": "media lima",
+        "pomelo": "medio pomelo"
+      },
+      "comunes": [
+        "cítrico",
+        "gajos",
+        "ácido",
+        "zumo",
+        "redondo",
+        "pepitas",
+        "cortado"
+      ],
+      "minas": [
+        "amarillo",
+        "mojito",
+        "desayuno"
+      ]
+    },
+    {
+      "id": "img-suelos",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "ladrillos",
+      "bandas": {
+        "1": [
+          "adoquines",
+          "azulejos"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "ladrillos": "ladrillos",
+        "adoquines": "adoquines",
+        "azulejos": "azulejos"
+      },
+      "titulos": {
+        "ladrillos": "una pared de ladrillos",
+        "adoquines": "una calle de adoquines",
+        "azulejos": "una pared de azulejos"
+      },
+      "comunes": [
+        "encajado",
+        "filas",
+        "juntas",
+        "duro",
+        "se repite",
+        "obra",
+        "recto"
+      ],
+      "minas": [
+        "pared",
+        "calle",
+        "baño"
+      ]
+    },
+    {
+      "id": "img-frutos",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "almendras",
+      "bandas": {
+        "1": [
+          "avellanas",
+          "nueces"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "almendras": "almendras",
+        "avellanas": "avellanas",
+        "nueces": "nueces"
+      },
+      "titulos": {
+        "almendras": "almendras",
+        "avellanas": "avellanas",
+        "nueces": "nueces"
+      },
+      "comunes": [
+        "montón",
+        "cáscara",
+        "marrón",
+        "crujiente",
+        "navidad",
+        "picar",
+        "seco"
+      ],
+      "minas": [
+        "turrón",
+        "chocolate",
+        "arrugado"
+      ]
+    },
+    {
+      "id": "img-rayas",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "piano",
+      "bandas": {
+        "1": [
+          "cebra",
+          "codigo"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "piano": "piano",
+        "cebra": "cebra",
+        "codigo": "código de barras"
+      },
+      "titulos": {
+        "piano": "las teclas de un piano",
+        "cebra": "un paso de cebra",
+        "codigo": "un código de barras"
+      },
+      "comunes": [
+        "rayas",
+        "blanco y negro",
+        "líneas",
+        "se repite",
+        "ordenado",
+        "ancho"
+      ],
+      "minas": [
+        "tecla",
+        "cruzar",
+        "caja"
+      ]
+    },
+    {
+      "id": "img-puntas",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "puercoespin",
+      "bandas": {
+        "1": [
+          "cactus",
+          "espino"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "puercoespin": "puercoespín",
+        "cactus": "cactus",
+        "espino": "alambre de espino"
+      },
+      "titulos": {
+        "puercoespin": "un puercoespín",
+        "cactus": "un cactus",
+        "espino": "alambre de espino"
+      },
+      "comunes": [
+        "pinchos",
+        "puntas",
+        "no tocar",
+        "defensa",
+        "clava",
+        "erizado"
+      ],
+      "minas": [
+        "animal",
+        "desierto",
+        "valla"
+      ]
+    },
+    {
+      "id": "img-espiral",
+      "tipo": "imagen",
+      "formato": "webp",
+      "categoria": "texturas",
+      "pista": "",
+      "astro": "caca",
+      "bandas": {
+        "1": [
+          "helado",
+          "colmena"
+        ],
+        "2": [],
+        "3": []
+      },
+      "palabras": {
+        "caca": "caca",
+        "helado": "helado",
+        "colmena": "colmena"
+      },
+      "titulos": {
+        "caca": "una caca de dibujos",
+        "helado": "un helado de soft",
+        "colmena": "una colmena de dibujos"
+      },
+      "comunes": [
+        "espiral",
+        "capas",
+        "punta",
+        "montón",
+        "se enrolla",
+        "dibujo",
+        "gordo"
+      ],
+      "minas": [
+        "moscas",
+        "verano",
+        "abejas"
+      ]
+    }
+  ]
+}

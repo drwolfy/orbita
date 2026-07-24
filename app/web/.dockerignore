@@ -1,0 +1,17 @@
+# El Dockerfile hace `COPY . .` en la etapa de build, así que todo lo que no
+# haga falta para compilar se queda fuera de la imagen (guía docker.md, Tema 5).
+node_modules
+dist
+.vite
+
+# Nunca en la imagen: secretos ni historia de git. El `.env` del proyecto vive
+# en la raíz (fuera de este context), pero se excluye igual por si algún día
+# aparece uno aquí.
+.env
+.env.*
+.git
+.gitignore
+
+# Ruido que no compila
+*.local
+*.log

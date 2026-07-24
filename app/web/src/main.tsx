@@ -1,0 +1,16 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { App } from './App'
+import { ProveedorPartida } from './estado/ProveedorPartida'
+import './index.css'
+
+const raiz = document.getElementById('root')
+if (!raiz) throw new Error('Falta el elemento #root')
+
+createRoot(raiz).render(
+  <StrictMode>
+    <ProveedorPartida>
+      <App />
+    </ProveedorPartida>
+  </StrictMode>,
+)

@@ -1,0 +1,183 @@
+@import 'tailwindcss';
+
+/* ───────────────────────────────────────────────────────────────
+   Identidad: neón sobre espacio profundo, con anillos concéntricos.
+   El cian es lo que está en el centro; el magenta, lo que orbita
+   lejos. Nebulosa y estrellas se pintan con degradados y SVG, no
+   con imágenes: la PWA tiene que abrir al instante y sin red.
+   Modo oscuro siempre: se juega de noche y el móvil va de mano en
+   mano, así que nada que deslumbre.
+   ─────────────────────────────────────────────────────────────── */
+@theme {
+  --color-espacio: #05060f;
+  --color-espacio-alto: #0b1024;
+  --color-superficie: #101733;
+  --color-borde: #26325c;
+  --color-texto: #eaf1ff;
+  --color-tenue: #8b9ac4;
+
+  --color-cian: #22d3ee;
+  --color-cian-claro: #a5f3fc;
+  --color-magenta: #e879f9;
+  --color-violeta: #a78bfa;
+  --color-alerta: #fb7185;
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --radius-suave: 1rem;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-noche);
+    /* El móvil va de mano en mano: nada de rebote ni de zoom accidental. */
+    overscroll-behavior: none;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100svh;
+    background-color: var(--color-noche);
+    color: var(--color-texto);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    /* Impide seleccionar texto al mantener pulsado para revelar la palabra. */
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Los campos de texto sí deben poder seleccionarse. */
+  input,
+  textarea {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+    touch-action: manipulation;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-astro);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  /* Respeta el notch y la barra de gestos en iPhone. */
+  .zona-segura {
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .aparece {
+    animation: aparece 0.35s ease-out both;
+  }
+
+  /* Entrada de pantalla: sube un poco y enfoca. Se dispara al cambiar de fase
+     porque el contenedor lleva `key`, así que React lo remonta. */
+  .entra {
+    animation: entra 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Escalonado para listas: cada hijo entra un pelín después del anterior. */
+  .escalonado > * {
+    animation: aparece 0.4s ease-out both;
+  }
+  .escalonado > *:nth-child(1) { animation-delay: 0.02s; }
+  .escalonado > *:nth-child(2) { animation-delay: 0.06s; }
+  .escalonado > *:nth-child(3) { animation-delay: 0.1s; }
+  .escalonado > *:nth-child(4) { animation-delay: 0.14s; }
+  .escalonado > *:nth-child(5) { animation-delay: 0.18s; }
+  .escalonado > *:nth-child(6) { animation-delay: 0.22s; }
+  .escalonado > *:nth-child(7) { animation-delay: 0.26s; }
+  .escalonado > *:nth-child(8) { animation-delay: 0.3s; }
+  .escalonado > *:nth-child(9) { animation-delay: 0.34s; }
+  .escalonado > *:nth-child(10) { animation-delay: 0.38s; }
+
+  /* La palabra secreta al destaparse: escala corta y seca, sin rebote. */
+  .revela {
+    animation: revela 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .late {
+    animation: late 2.6s ease-in-out infinite;
+  }
+
+  .titila {
+    animation: titila 4s ease-in-out infinite;
+  }
+}
+
+@keyframes aparece {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes entra {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes revela {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes late {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.035);
+  }
+}
+
+@keyframes titila {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
