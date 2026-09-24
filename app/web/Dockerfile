@@ -5,7 +5,9 @@ FROM node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b533
 WORKDIR /app
 
 # Las dependencias en una capa aparte: si no cambian, no se reinstalan.
-COPY package.json package-lock.json ./
+# El .npmrc entra CON ellas: si llegara después (con el COPY . . de abajo),
+# `ignore-scripts=true` no se aplicaría y npm ci ejecutaría los postinstall.
+COPY package.json package-lock.json .npmrc ./
 RUN npm ci
 
 COPY . .
