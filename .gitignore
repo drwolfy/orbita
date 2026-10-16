@@ -1,5 +1,5 @@
 # Datos persistentes y temporales
-data/
+/data/
 
 # Entorno virtual de Python
 venv/
