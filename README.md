@@ -157,8 +157,9 @@ npm run dev -- --host      # http://localhost:5173
 ```
 
 Otros comandos: `npm run build` (build de producción), `npm run typecheck`,
-`npm run lint` (ESLint con tipos: caza promesas sin `await`), `npm run preview`
-(sirve el build ya hecho).
+`npm run lint` (ESLint con tipos: caza promesas sin `await`), `npm test` (las
+reglas del juego y el catálogo de palabras, fotos y frases: si curas palabras,
+pásalo) y `npm run preview` (sirve el build ya hecho).
 
 ## Desplegar
 
