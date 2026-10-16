@@ -194,21 +194,22 @@ datos. Los datos del juego viajan en el propio bundle y el marcador se guarda en
   - `src/pantallas/` — una pantalla por fase.
   - `src/datos/` — `familias.json` (las palabras), `parejas.json` (los tríos de
     fotos) y `maniobras.json`.
-  - `public/parejas/` — las fotos del modo imágenes.
+  - `src/assets/parejas/` — las fotos del modo imágenes (con hash en el nombre
+    al compilar, para que la caché nunca sirva una vieja).
   - `src/textos/` — todas las cadenas visibles, centralizadas por si algún día
     se traduce.
-- `docs/` — especificación y notas.
+- `docs/` — la especificación del juego y cómo se cura un trío de fotos.
 - `data/` — datos persistentes (ignorado por git).
 
 ## Estado actual
 
-Se juega una partida completa de principio a fin, en los dos modos.
+Se juega una partida completa de principio a fin en Órbita, clásico, fotos y
+Relevo.
 
 Las palabras de `src/datos/familias.json` son una **semilla escrita a mano**: 576
-familias repartidas en 13 temas, todos con 38 palabras o más. Ya supera el
-objetivo de ≥300 del criterio de aceptación 2, así que el pipeline con LLM +
-embeddings de la fase 1 pasa a ser una mejora de calidad (calibrar mejor las
-bandas 2 y 3) y no un bloqueo. El formato del JSON es el definitivo.
+familias repartidas en 13 temas, todos con 38 palabras o más. Bastan para
+jugar; generarlas con un pipeline sería una mejora de calidad (calibrar mejor
+las bandas 2 y 3), no un bloqueo. El formato del JSON es el definitivo.
 
 De esas 576, unas 130 son de **doble sentido** y están al final del archivo, así
 que el lote se revierte de una pieza si estorba. Pendiente de playtest: las que

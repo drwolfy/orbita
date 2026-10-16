@@ -1,5 +1,5 @@
 /**
- * Todas las cadenas visibles, en un solo sitio (§7). Si algún día se traduce,
+ * Todas las cadenas visibles, en un solo sitio (§5). Si algún día se traduce,
  * se copia este archivo y se cambia el import.
  */
 export const T = {

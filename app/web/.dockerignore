@@ -1,5 +1,5 @@
 # El Dockerfile hace `COPY . .` en la etapa de build, así que todo lo que no
-# haga falta para compilar se queda fuera de la imagen (guía docker.md, Tema 5).
+# haga falta para compilar se queda fuera de la imagen.
 node_modules
 dist
 .vite

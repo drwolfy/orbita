@@ -10,7 +10,7 @@ import { forwardRef, useEffect, useImperativeHandle, useLayoutEffect, useRef, us
 const ANCHO = 900
 const PROPORCION_POR_DEFECTO = 4 / 3
 
-/** Fondo oscuro y trazo claro: el móvil va de mano en mano de noche (§7). */
+/** Fondo oscuro y trazo claro: el móvil va de mano en mano de noche (§5). */
 const FONDO = '#0b1024'
 const TRAZO = '#eaf1ff'
 const GROSOR = 7

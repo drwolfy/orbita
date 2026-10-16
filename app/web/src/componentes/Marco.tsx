@@ -76,7 +76,7 @@ interface BotonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 /**
  * Botón grande: el móvil va de mano en mano y se usa con una sola mano, así
- * que las áreas táctiles son generosas a propósito (§7).
+ * que las áreas táctiles son generosas a propósito (§5).
  */
 export function Boton({
   tono = 'cian',

@@ -10,7 +10,7 @@ import { Marco } from './Marco'
 const MINIMO_LEIDO = 600
 
 /**
- * La palabra se ve manteniendo pulsado, nunca con un toque (§7): así nadie la
+ * La palabra se ve manteniendo pulsado, nunca con un toque (§5): así nadie la
  * pilla de reojo ni se queda en pantalla si sueltas el móvil. Al levantar el
  * dedo —o al salirse del área, o si el sistema cancela el gesto— se tapa sola.
  *

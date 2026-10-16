@@ -349,9 +349,9 @@ dedal de *hoyuelos*.
 
 ## Lo que hay ahora mismo
 
-**Diecisiete tríos.** Los diez primeros son de «misma forma, objeto distinto»:
-el desviado tiene dónde agarrarse pero un resbalón lo mata. Los cinco de
-*hermanos* son tres cosas casi iguales —el desviado es defendible casi siempre,
+Cuántos tríos y fotos hay, en el [README](../README.md#estado-actual). En los
+de «misma forma, objeto distinto» el desviado tiene dónde agarrarse, pero un
+resbalón lo mata. Los de *hermanos* son tres cosas casi iguales —el desviado es defendible casi siempre,
 porque todo lo que diga vale también para los otros dos— y sirven para las
 rondas que se ponen largas. El riesgo ahí es el contrario: que no exploten nunca
 y queden en tablas.
@@ -387,14 +387,14 @@ dar sensación de repetido.
 | suelos | ladrillos | adoquines · azulejos | pared · calle · baño |
 | frutos | almendras | avellanas · nueces | turrón · chocolate · arrugado |
 
-Las 47 fotos dan una sola palabra y se nombran en dos segundos.
+Todas las fotos dan una sola palabra y se nombran en dos segundos.
 
 ### Sobre personajes de anime y cine
 
 Se descartó. No por el generador —aunque también: la claqueta salió como rayas
 en el asfalto y el pelo de anime como una bola de pinchos abstracta— sino porque
 Goku, Vegeta, Arale, Shin Chan o Doraemon **tienen dueño**, y Órbita está
-publicada en internet por el túnel de Cloudflare. Meter recortes suyos en la app
+publicada en internet. Meter recortes suyos en la app
 es distribuirlos.
 
 Lo que sí funciona es quedarse con **la forma sin el personaje**, que es donde

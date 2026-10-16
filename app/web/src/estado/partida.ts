@@ -236,7 +236,7 @@ export function reducir(estado: Estado, accion: Accion): Estado {
       return { ...estado, indiceReparto: estado.indiceReparto + 1, enTraspaso: true }
     }
 
-    // Deshacer del reparto (§7): alguien ha pasado el móvil sin mirar.
+    // Deshacer del reparto (§5): alguien ha pasado el móvil sin mirar.
     case 'reparto/atras':
       return {
         ...estado,

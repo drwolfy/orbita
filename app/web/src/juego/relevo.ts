@@ -4,7 +4,7 @@ import frasesJson from '../datos/frases.json'
 import type { Jugador } from './tipos'
 
 /**
- * El Relevo: entre todos dibujan lo mismo, quince segundos cada uno, y el
+ * El Relevo: entre todos dibujan lo mismo, unos segundos cada uno, y el
  * último —que nunca ha visto las palabras— dice qué cree que es.
  *
  * No lleva puntuación a propósito. En esta mesa no se cuenta quién gana, así
@@ -45,7 +45,7 @@ export function cuantasPalabras(dibujantes: number): number {
 
 /**
  * Las que se pueden dibujar. Fuera los `abstractos`: «libertad» o «costumbre»
- * no hay quien las dibuje en quince segundos. Fuera también los tríos de
+ * no hay quien las dibuje en veinte segundos. Fuera también los tríos de
  * imagen, que no son palabras.
  */
 export function palabrasDibujables() {

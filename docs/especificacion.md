@@ -1,25 +1,12 @@
 # ÓRBITA — especificación
 
-> Documento de referencia del proyecto.
 > Juego social de deducción para navegador (PWA, mobile-first, español).
-
-> **Estado: construido y en marcha.** Los §1–§4 describen el juego **tal y como
-> es hoy**, no el plan original: se actualizaron tras la primera noche de
-> partidas de verdad, que obligó a acortar la ronda y a callar la revelación.
-> Los §5–§8 son las fases de construcción y se dejan como registro histórico.
-> El porqué de cada cambio está en [`notas.md`](notas.md).
+> Este documento dice cómo es el juego hoy. El porqué de cada cambio está en el
+> historial de git.
 
 ---
 
-## 0. Antes de empezar
-
-Respeta las convenciones del proyecto (estructura, linting, entornos, commits).
-
-Las fases de construcción (§5 en adelante) ya están cumplidas: la validación en
-papel se hizo, el pipeline generó los datos y la app está desplegada. Para
-cambios nuevos, manda lo que digan §1–§4.
-
-### Lo que manda por encima de todo: el ritmo
+## 0. Lo que manda por encima de todo: el ritmo
 
 Aprendido jugando, y es el criterio con el que se resuelve cualquier duda de
 diseño que este documento no cubra:
@@ -115,7 +102,13 @@ allá de la 1.
 **Al añadir o cambiar familias**, el campo `pista` es obligatorio y debe
 cumplir: una sola palabra, que no sea el Astro, que no comparta raíz con él
 (`hormiga`/`hormiguero` delata) y que no coincida con ninguna palabra de la
-banda 1 (que es la que recibe el Satélite en modo Órbita).
+banda 1 (que es la que recibe el Satélite en modo Órbita). Estas reglas las
+comprueba `npm test` (`src/juego/datos.test.ts`).
+
+**Lo que ningún test ve** es que la pista sea una pieza de la cosa
+(`silla → respaldo`, `judo → tatami`): es atrezo con otro nombre y delata igual.
+Eso solo sale leyendo una muestra al azar en fila, así que tras tocar pistas se
+lee una muestra.
 
 **No puede decir su pista tal cual.** Si pudiera, lo rentable sería soltarla y
 volverse invisible, que es precisamente lo contrario de improvisar. Es la misma
@@ -132,14 +125,14 @@ Orden de turno aleatorio, mostrado en pantalla. Cada jugador dice en voz alta
 no captura texto.
 
 Reglas de la señal, que deben aparecer literalmente en la pantalla de
-instrucciones (son cuatro líneas, no las alargues):
+instrucciones (son cuatro líneas, y se quedan en cuatro):
 
 1. Una sola palabra.
 2. Ni tu palabra, ni derivados, ni sinónimos.
 3. Nada de gestos ni de señalar.
 4. No se repite una señal ya dicha.
 
-**Ejemplo canónico** (úsalo en el tutorial de la app):
+**Ejemplo canónico** (el del tutorial de la app):
 
 > Astro: `perro`. Cuatro jugadores tienen `perro`, uno tiene `lobo`.
 > Ana → correa · Bruno → ladrido · **Clara → manada** · David → veterinario ·
@@ -163,7 +156,7 @@ activado: sin cuenta atrás no hay nada que la app tenga que llevar.
 
 ### 2.4 La regla de la segunda oportunidad
 
-**Crítica para el equilibrio. No la omitas.**
+**Crítica para el equilibrio.**
 
 Si el más votado resulta ser un Satélite, se le dice, y **tiene una oportunidad
 de adivinar el Astro. Si acierta, gana él la ronda.**
@@ -280,7 +273,7 @@ coartada al Satélite. El caos tapa la señal, no la sustituye.
 - Contradice a la primera persona que hable.
 - Defiende públicamente a `{jugador}`.
 
-### 3.3 Tres variantes (impleméntalas como opciones activables)
+### 3.3 Variantes (opciones activables)
 
 - **Maniobras enfrentadas** — dos jugadores reciben objetivos opuestos sobre la
   misma persona. Ninguno sabe que el otro existe.
@@ -288,16 +281,16 @@ coartada al Satélite. El caos tapa la señal, no la sustituye.
   ("alguien tiene que conseguir que se diga 'lunes'"). Todos saben el qué,
   nadie el quién.
 - **Maniobra heredada** — al expulsado se le transfiere la maniobra a quien le
-  votó, que se entera a mitad de partida.
+  votó, que se entera a mitad de partida. **Sin programar** (§7).
 
 ### 3.4 Diseño de maniobras
 
 Una maniobra debe **estorbar** al objetivo principal del jugador. Si le ayuda a
 ganar la ronda, son puntos gratis y no hay decisión que tomar.
 
-En v1 la maniobra se entrega **junto con la palabra**, en la misma pantalla del
-reparto. Las maniobras enviadas en vivo a mitad de debate requieren un
-dispositivo por persona: eso es fase posterior, no lo implementes.
+La maniobra se entrega **junto con la palabra**, en la misma pantalla del
+reparto. Entregarlas en vivo a mitad de debate requeriría un dispositivo por
+persona (§7).
 
 ---
 
@@ -337,156 +330,60 @@ jugador mientras la noche está en marcha.
 
 ---
 
-> **§5–§8: registro histórico**, salvo §6. Se conservan porque explican por qué
-> el proyecto está montado como está, pero ya no son instrucciones que seguir.
-> **§6 (el pipeline de datos) sigue pendiente de verdad**: las palabras son una
-> semilla escrita a mano.
+## 5. La aplicación
 
-## 5. Fase 0 — validación en papel (bloqueante) — ✅ hecha
-
-**Antes de escribir una línea de código**, quiero jugar esto en papel:
-
-- Cinco papelitos: `perro` en cuatro, `lobo` en uno.
-- Seis maniobras escritas a mano.
-- Dos rondas sin maniobras, dos con ellas.
-
-Lo que estoy comprobando:
-
-1. ¿Se entiende sin explicación larga?
-2. ¿La ronda tiene un final satisfactorio, o acaba en encogimiento de hombros?
-3. ¿Las maniobras animan la partida, o la mesa se olvida de deducir y se
-   convierte en un circo vacío? *(Si pasa esto: dar maniobra solo a la mitad
-   del grupo.)*
-
-Genérame el material imprimible para esta prueba y **espera mis resultados antes
-de continuar.** No avances a la fase 1 por tu cuenta.
-
----
-
-## 6. Fase 1 — pipeline de datos (`/pipeline`) — ⚠️ pendiente
-
-> **Ojo: esta fase NO está hecha.** La app funciona con una **semilla escrita a
-> mano de 444 familias** (`app/web/src/datos/familias.json`, con
-> `"origen": "semilla escrita a mano, pendiente de sustituir por el pipeline"`).
-> Las tres bandas existen y son de buena calidad, pero son artesanales, no
-> generadas por embeddings. Lo que sigue describe el pipeline que las
-> sustituiría.
-
-Script Python que se ejecuta **una sola vez en local, en la GPU**, y produce un
-JSON estático. Nada de esto corre en el navegador.
-
-**Objetivo:** ~300 familias de palabras en español. Cada familia: un Astro y
-candidatos agrupados en bandas 1, 2 y 3 por distancia semántica.
-
-> **Sigue siendo cierto: la app solo consume la banda 1.** La pista del impostor
-> (§2.1b) no sale de las bandas, va en un campo `pista` aparte. El pipeline
-> tendría que generarlo también, y no es un problema de similitud coseno: una
-> pista buena es una consecuencia o un dicho, no un vecino semántico. Lo más
-> probable es que haya que escribirlas o generarlas con un modelo de lenguaje,
-> no con embeddings.
-
-> La app v1 **solo consume la banda 1**. Genera igualmente las tres: el coste es
-> el mismo y deja listo el modo avanzado (Cometa = banda 2, Errante = banda 3,
-> ajustable con el parámetro de Amplitud).
-
-### Enfoque híbrido — no lo simplifiques
-
-1. **Candidatos con LLM** — para cada Astro, pide a la API de Anthropic
-   (`claude-sonnet-4-6`) ~25 candidatos relacionados, cubriendo distintos grados
-   de cercanía.
-2. **Bandeado con embeddings** — calcula embeddings con `sentence-transformers`
-   (`intfloat/multilingual-e5-large` o `paraphrase-multilingual-mpnet-base-v2`) y
-   agrupa por similitud coseno en bandas, con umbrales configurables.
-3. **Filtros de calidad** — descarta variantes morfológicas del Astro (plurales,
-   diminutivos, misma raíz), términos de más de dos palabras, repeticiones entre
-   bandas, y candidatos fuera del rango útil de similitud.
-
-**Por qué híbrido:** los vecinos más próximos en embeddings puros devuelven basura
-(plurales, coocurrencias, erratas). El LLM aporta candidatos con sentido; los
-embeddings aportan la *calibración* de distancia, que el LLM no hace de forma
-consistente.
-
-### Requisitos técnicos
-
-- GPU: RTX 5060 Ti (Blackwell, `sm_120`). **Instala PyTorch con CUDA 12.8 o
-  superior** desde el índice correspondiente; el índice por defecto de pip compila
-  contra targets que esta tarjeta no soporta. Verifica con
-  `torch.cuda.get_device_capability()` antes de nada.
-- Entorno aislado (venv o uv, según el `CLAUDE.md`).
-- Clave de API desde variable de entorno, **nunca hardcodeada**.
-- Cachea las respuestas del LLM en disco: regenerar no debe costar dinero dos veces.
-
-### Output
-
-`data/families.json`:
-
-```json
-{
-  "version": 1,
-  "families": [
-    {
-      "id": "perro",
-      "astro": "perro",
-      "categoria": "animales",
-      "pista": "cartero",
-      "bandas": {
-        "1": ["lobo", "zorro"],
-        "2": ["mamífero", "veterinario"],
-        "3": ["correa", "manada"]
-      }
-    }
-  ]
-}
-```
-
-El campo `pista` (§2.1b) es **obligatorio** y no se genera con embeddings: no es
-un vecino semántico sino una consecuencia o un dicho. Si el pipeline lo produce,
-que sea con el LLM y validando las cuatro reglas de §2.1b.
-
-También `data/maniobras.json`, con plantillas y sus reglas de verificación
-(automática por voto / manual por el grupo).
-
-**Entregable adicional obligatorio:** un script que imprima 30 familias al azar
-en formato legible, para que yo las revise a ojo.
-
----
-
-## 7. Fase 2 — aplicación web (`/app`) — ✅ hecha
-
-- **Vite + React + TypeScript + Tailwind.**
-- **PWA** con `vite-plugin-pwa`: instalable, 100 % offline, manifest e iconos
-  correctos. Debe funcionar en **Safari iOS**, no solo en Chrome Android.
-- **Sin backend, sin cuentas, sin base de datos.** Los JSON van en el bundle.
-  Marcador y ajustes en `localStorage`.
-- **Mobile-first, vertical, uso con una mano** — el móvil se pasa de mano en mano.
-  Áreas táctiles grandes.
-- **Modo oscuro por defecto.** Se juega de noche.
-- Interfaz en español, cadenas centralizadas por si luego internacionalizamos.
-- Identidad visual: anillos concéntricos. Elige una dirección con intención,
-  huye del aspecto de plantilla genérica.
-
-### UX que no debes saltarte
-
-- La palabra se revela **manteniendo pulsado**, no con un toque. Evita que la vean
-  de reojo.
-- Pantalla de traspaso obligatoria entre jugadores.
-- Botón de deshacer en el reparto.
+- **Vite + React + TypeScript + Tailwind**, PWA con `vite-plugin-pwa`:
+  instalable, **100 % offline** y probada en Safari iOS, no solo en Chrome
+  Android.
+- **Sin backend, sin cuentas, sin base de datos.** Los JSON van en el bundle;
+  marcador, ajustes y palabras ya jugadas, en `localStorage`. Si cambia un valor
+  por defecto, `almacenamiento.ts` lo migra con su `VERSION` y la función
+  `migrar`: el móvil guarda el viejo.
+- **Mobile-first, vertical, con una mano**: el móvil se pasa de mano en mano y
+  las áreas táctiles son grandes. **Modo oscuro**, porque se juega de noche.
+- Interfaz en español, con todas las cadenas en `src/textos/es.ts`.
+- La palabra se ve **manteniendo pulsado**, nunca con un toque, para que no se
+  vea de reojo.
+- Pantalla de **traspaso** entre jugadores y botón de **deshacer** en el
+  reparto, para cuando alguien pasa el móvil sin mirar.
 - Tutorial de una pantalla con el ejemplo del perro de §2.2.
+- Las fotos van con hash en el nombre (`src/assets/`), así que cada cambio
+  estrena URL y ni la caché ni el service worker sirven una vieja.
 
 ---
 
-## 8. Fase 3 — despliegue (`/deploy`) — ✅ hecha
+## 6. El Relevo
 
-- `Dockerfile` multi-stage: build de Vite → nginx sirviendo el estático.
-- `docker-compose.yml` de ejemplo para levantarlo y probar desde el móvil.
-- Cabeceras de caché correctas para el service worker — el fallo clásico de las
-  PWA es servir un `sw.js` cacheado y quedarse con una versión vieja para siempre.
+Un juego aparte en la misma app: **no comparte motor** con Órbita —ni reparto,
+ni señales, ni votación, ni puntos—.
+
+- Sale lo que hay que dibujar y el móvil empieza por alguien al azar, así que
+  el que adivina cambia cada vez sin llevar la cuenta.
+- Cada uno tiene **5 segundos para leer** (no gastan reloj) y **20 para dibujar
+  con el dedo** (ajustable), viendo lo que llevan los anteriores. Al llegar a
+  cero se captura el lienzo y se pasa.
+- **El último nunca ve las palabras**: recibe el dibujo terminado, dice en voz
+  alta qué cree que es y destapa.
+- Al final salen las palabras y **el dibujo turno a turno**, con quién metió
+  cada trazo.
+- **No hay acertó ni falló** a propósito: en esta mesa no se cuenta quién gana,
+  y un veredicto sería una pantalla de más y una discusión («casi lo dijo») sin
+  premio detrás.
+
+Qué se dibuja, con un interruptor en la tarjeta:
+
+- **Palabras sueltas**: una por cada dos que dibujan, entre 2 y 4, del
+  diccionario de Órbita **sin `abstractos`** (no se dibujan en 20 segundos) y
+  sin los tríos de fotos.
+- **Frases**: sujeto + acción + lugar, montadas por piezas desde
+  `src/datos/frases.json` («un pingüino planchando en la playa»). Las absurdas
+  son las buenas y salen gratis.
 
 ---
 
-## 9. Fuera de alcance
+## 7. Fuera de alcance y por hacer
 
-No implementes nada de esto todavía:
+Nada de esto está hecho:
 
 - Modo avanzado con bandas 2 y 3 (Cometa, Errante) — los datos se generan, la UI no.
 - Maniobras entregadas en vivo durante el debate.
@@ -494,28 +391,8 @@ No implementes nada de esto todavía:
 - Cuentas, backend, base de datos.
 - Monetización, anuncios, compras.
 - Idiomas distintos del español.
-
----
-
-## 10. Criterios de aceptación
-
-1. La prueba en papel de la fase 0 confirma que el juego es divertido. **Si no lo
-   es, paramos y rediseñamos — no seguimos.**
-2. El pipeline produce `families.json` con ≥300 familias válidas, y al revisar 30
-   al azar las bandas coinciden con la intuición humana de cercanía.
-3. La app funciona offline en un iPhone añadida a la pantalla de inicio, y permite
-   jugar una partida completa de 5 jugadores sin filtrar información.
-4. Alguien que no ha jugado nunca entiende las reglas sin que yo se las explique.
-
----
-
-## 11. Cómo quiero trabajar
-
-Empieza por el material de la fase 0 y **espera mis resultados**. Después,
-propón estructura de directorios y plan de la fase 1, y espera mi visto bueno
-antes de escribir código. Avanza por fases, parando al final de cada una.
-
-Si detectas un problema de diseño que yo no he visto — que con 4 jugadores se
-rompe, que la banda 1 es indistinguible del ruido, que una maniobra es imposible
-de verificar — **dímelo en vez de implementarlo igualmente.** Prefiero
-descubrirlo ahora que dentro de dos semanas.
+- **Maniobra heredada** (§3.3): descrita, sin programar.
+- **Generar las bandas con un modelo de lenguaje y embeddings.** Hoy las 576
+  familias son una semilla escrita a mano y bastan; un pipeline serviría para
+  calibrar mejor las bandas 2 y 3. La `pista` no saldría de ahí: no es un vecino
+  semántico sino una consecuencia o un dicho, y tendría que cumplir §2.1b.

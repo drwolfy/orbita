@@ -8,11 +8,8 @@ venv/
 .env
 .env.ejemplo
 
-# Privado: configuración interna de despliegue. El repo público lleva un
-# docker-compose.example.yml genérico y un README sin detalles del montaje.
+# El despliegue propio de cada uno; el de ejemplo es docker-compose.example.yml
 docker-compose.yml
-DESPLIEGUE-LAB.md
-CLAUDE.md
 
 # Cachés y compilados de Python
 __pycache__/

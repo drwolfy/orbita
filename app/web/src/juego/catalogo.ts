@@ -4,9 +4,9 @@ import { PAREJAS } from './parejas'
 import type { Ajustes, Familia, PlantillaManiobra } from './tipos'
 
 /**
- * Los datos viajan en el bundle: sin backend y sin red (§7). Cuando el
- * pipeline de la fase 1 genere su families.json, basta con sustituir el
- * archivo: el formato es el mismo.
+ * Los datos viajan en el bundle: sin backend y sin red (§5). Si algún día
+ * se generan con un pipeline (§7), basta con sustituir el archivo: el
+ * formato es el mismo.
  */
 export const FAMILIAS = familiasJson.families as Familia[]
 
