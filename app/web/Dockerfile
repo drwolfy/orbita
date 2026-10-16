@@ -26,4 +26,6 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY seguridad.conf /etc/nginx/seguridad.conf
 COPY --from=build /app/dist /usr/share/nginx/html
 
+# La imagen ya corre como 101; se declara para que se vea sin ir a su Dockerfile.
+USER 101
 EXPOSE 80
